@@ -1,14 +1,14 @@
 //By Ankush 
-#include <ESP8266WiFi.h> //ESP8266 Core WiFi Library (you most likely already have this in your sketch)      
-// Replace with your network credentials
-const char* ssid = "homeauto"; // Input your wifi network name
+#include <ESP8266WiFi.h>//ESP8266 Core WiFi Library    
+#include <ESP8266WebServer.h>
+const char* ssid = "homeauto"; // Input your hotspot name
 const char* password = "password1234";
 
 IPAddress local_ip(192,143,2,1);
 IPAddress gateway(192,143,2,1);
 IPAddress subnet(255,255,255,0);
 // Set web server port number to 80
-WiFiServer server(80);
+ESP8266WiFiServer server(80);
 
 // Variable to store the HTTP request
 String header;
