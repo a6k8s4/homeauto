@@ -3,20 +3,16 @@
 #include <ESP8266WebServer.h>
 const char* ssid = "homeauto"; // Input your hotspot name
 const char* password = "password1234";
-
 IPAddress local_ip(192,143,2,1);
 IPAddress gateway(192,143,2,1);
 IPAddress subnet(255,255,255,0);
 ESP8266WebServer server(80); // Set web server port number to 80
-
 String header;// Variable to store the HTTP request
-
 // Auxiliar variables to store the current output state
 String relay1State = "off";
 String relay2State = "off";
 String relay3State = "off";
 String relay4State = "off";
-
 // Assign output variables to GPIO pins
 const int relay1 = 5; // GPIO5 D1
 const int relay2 = 4; // GPIO4 D2
@@ -36,7 +32,6 @@ void setup() {
   digitalWrite(relay2, HIGH);
   digitalWrite(relay3, HIGH);
   digitalWrite(relay4, HIGH);
-
   Serial.println("Setting Access Point........");
   WiFi.mode(WIFI_AP);
   WiFi.softAP(ssid, password);
@@ -50,8 +45,6 @@ void setup() {
   server.begin();
   Serial.println("Server started");
 }
-
-
 void loop() {
   WiFiClient client = server.available();   // Listen for incoming clients
 
