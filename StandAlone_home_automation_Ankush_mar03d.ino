@@ -7,7 +7,7 @@ const char* password = "password1234";
 IPAddress local_ip(192,143,2,1);
 IPAddress gateway(192,143,2,1);
 IPAddress subnet(255,255,255,0);
-ESP8266WiFiServer server(80); // Set web server port number to 80
+ESP8266WebServer server(80); // Set web server port number to 80
 
 String header;// Variable to store the HTTP request
 
