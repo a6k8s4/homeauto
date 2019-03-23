@@ -1,17 +1,14 @@
 //By Ankush
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
-
 /* Put your SSID & Password */
 const char* ssid = "HomeAuto";  // Enter SSID here
 const char* password = "password1234";  //Enter Password here
-
 /* Put IP Address details */
 IPAddress local_ip(192,143,1,1);
 IPAddress gateway(192,143,1,1);
 IPAddress subnet(255,255,255,0);
-
-ESP8266WebServer server(80);
+ESP8266WebServer server(80); // Set web server port number to 80
 
 // Initializing Relay Input Pins.
 // Using NC(Normally Closed) connection for connecting the devices.
@@ -137,10 +134,6 @@ void handle_switch4off() {
   Serial.println("GPIO 15 Status: OFF");
   server.send(200, "text/html", SendHTML(SWITCH3status,false)); 
 }
-
-
-
-
 void handle_NotFound(){
   server.send(404, "text/plain", "Not found");
 }
